@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+  <h1 class="mb-3">Crear nuevo usuario</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }} 
+    {% for field in form %}
+      <div class="mb-2">
+        <div>
+          <label for="{{field.id_for_label}}" style="width: 200px;">{{ field.label_tag }}</label>
+          {{ field }}
+        </div>
+        <div class="text-danger">{{ field.errors }}</div>
+      </div>
+    {% endfor %}
+    <div class="my-2">
+      <button class="btn btn-primary" type="submit">Registrar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

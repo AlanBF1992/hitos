@@ -1,0 +1,39 @@
+<header>
+  Insertar header aquí
+</header>
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-md">
+    <a class="navbar-brand" href="{% url 'home' %}">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href={% url 'home' %}>Inicio</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'dashboard_url' %}active{% endif %}" href={% url 'dashboard_url' %}>Perfil</a>
+        </li>
+        {% if user.profile.id_tipo_user.id == 2 %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'solicitudes_url' %}active{% endif %}" href={% url 'solicitudes_url' %}>Solicitudes</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'logout_url' %}active{% endif %}" href={%url 'logout_url'%}>Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'login_url' %}active{% endif %}" href={% url 'login_url' %}>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'register_url' %}active{% endif %}" href={% url 'register_url' %}>Registro</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+  
+</nav>
