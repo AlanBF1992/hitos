@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-arb!pjg%0lsvxk$m7n)2=hej3q!ty8rwqurvj1qzp&!rdo*)d9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,10 +78,10 @@ WSGI_APPLICATION = 'hitos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'm7_python',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'NAME': 'dbj0go0dj7brha',
+        'USER': 'unmnmgdkpcglpw',
+        'PASSWORD': 'a24f089d3818e1d72099ea1025d948d07e21622b00ea9c3698f6d6b4b70199b0',
+        'HOST': 'ec2-44-206-137-96.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
